@@ -1,0 +1,11 @@
+FROM node:slim
+
+ENV LIBRARY_PATH=/lib:/usr/lib
+
+WORKDIR /app
+RUN mkdir /app/.xiaomi-mqtt
+COPY config.json /app/.xiaomi-mqtt/config.json
+
+RUN https://github.com/grinco/xiaomi-mqtt
+
+CMD ["xm"]
