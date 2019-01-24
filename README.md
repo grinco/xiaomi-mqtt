@@ -8,12 +8,12 @@ https://github.com/cflurin/xiaomi-mqtt
 Raspberry Pi3 or other ARM devices:
 
 ```sh
-docker run --rm -v /path/to/.xiaomi-mqtt:/root/.xiaomi-mqtt grinco/xiaomi-mqtt:armhf
+docker run --rm --net=host -v /path/to/.xiaomi-mqtt:/root/.xiaomi-mqtt grinco/xiaomi-mqtt:armhf
 ```
 
 On x86 machines:
 ```sh
-docker run --rm -v /path/to/.xiaomi-mqtt:/root/.xiaomi-mqtt grinco/xiaomi-mqtt
+docker run --rm --net=host -v /path/to/.xiaomi-mqtt:/root/.xiaomi-mqtt grinco/xiaomi-mqtt
 ```
 
 ### Configuration
