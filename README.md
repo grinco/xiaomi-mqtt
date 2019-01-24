@@ -1,46 +1,26 @@
 # xiaomi-mqtt
 
-[![NPM version][npm-image]][npm-url]
+A dockerized Bridge between the Xiaomi Mi Smart Home Gateway and the Mqtt broker based on the work done by cflurin that is available here:
+https://github.com/cflurin/xiaomi-mqtt
 
-[npm-image]: http://img.shields.io/npm/v/xiaomi-mqtt.svg
-[npm-url]: https://npmjs.org/package/xiaomi-mqtt
+### Running
 
-A Bridge between the Xiaomi Mi Smart Home Gateway and the Mqtt broker.
-
-Xiaomi-mqtt exchanges data between the xiaomi gateway and the mqtt-broker at a low-level, principally based on the device `sid` (Security Identifier?). The automation and dashboard tasks are implemented at a higher level. [Node-RED](http://nodered.org/) is the perfect tool to use for this purpose.
-
-### Installation
+Raspberry Pi3 or other ARM devices:
 
 ```sh
-sudo npm install -g xiaomi-mqtt
+docker run --rm -v /path/to/.xiaomi-mqtt:/root/.xiaomi-mqtt grinco/xiaomi-mqtt:armhf
 ```
 
-### Installation from GitHub
-
-Clone the source repository directly from GitHub to a local folder:
-
+On x86 machines:
 ```sh
-git clone https://github.com/cflurin/xiaomi-mqtt.git
-```
-
-Local Installation:
-
-```sh
-cd xiaomi-mqtt
-npm install
+docker run --rm -v /path/to/.xiaomi-mqtt:/root/.xiaomi-mqtt grinco/xiaomi-mqtt
 ```
 
 ### Configuration
 
-Copy the `config.json` file to the `.xiaomi-mqtt` folder inside of your home folder.
+Copy the `config.json` file to the `/path/to/.xiaomi-mqtt` folder.
 
-```sh
-mkdir ~/.xiaomi-mqtt
-cp config.json ~/.xiaomi-mqtt/
-```
-On Linux the full path for your config.json would be `~/.xiaomi-mqtt/config.json`.
-
-Edit `~/xiaomi-mqtt/config.json` to fit your requirements:
+Edit `/path/to/.xiaomi-mqtt/config.json` to fit your requirements:
 
 ```sh
 {
